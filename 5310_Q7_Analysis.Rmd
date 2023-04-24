@@ -1,0 +1,36 @@
+---
+title: "5310_q7"
+author: "Jiaming Zhang"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(rpart)
+library(rpart.plot)
+```
+
+```{r}
+df = read.csv('5310_Q7_Data.csv')
+df
+```
+
+```{r}
+control <- rpart.control(
+    minsplit = 20, 
+    maxdepth = 10,
+    cp = 0.001
+    )
+tune_tree1 <- rpart(surge_multiplier~.,data = df)
+
+rpart.plot(tune_tree1)
+```
+
+
+
+
+
+
+
+
